@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aula do dia 22/02/2022 - Eventos</title>
+        <style>
+            div {
+                background-color: blue;
+                color: white;
+                margin-top: 100px;
+                height: 100px;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <!--<button id="botao" onclick="alert('Você clicou no botão!')">Clique em mim!!!</button>-->
+        <button id="botao">Clique em mim!!!</button>
+        <!--<div id="retangulo" onmouseenter="alert('Mouse entrou na DIV!!!')" onmouseleave="alert('Mouse saiu da DIV!!!')">
+            PASSE O MOUSE NA DIV!!!
+        </div>-->
+        <div id="retangulo">
+            PASSE O MOUSE NA DIV!!!
+        </div>
+        <script>
+            let botao = document.querySelector("button#botao");
+            let retangulo = document.querySelector("div#retangulo");
+
+            botao.addEventListener("click", function () {
+                alert('Você clicou no botão!')
+            });
+
+            retangulo.addEventListener("mouseenter", function () {
+                alert("Mouse entrou na DIV!!!");
+            });
+
+            retangulo.addEventListener("mouseleave", function () {
+                alert("Mouse saiu da DIV!!!");
+            });
+        </script>
+    </body>
+</html>
