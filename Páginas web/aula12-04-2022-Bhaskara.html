@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projeto Bhaskara</title>
+    </head>
+    <body>
+        <h1>Projeto Bhaskara</h1>
+        Informe o valor de A: <input type="text" id="a"/>
+        Informe o valor de B: <input type="text" id="b"/>
+        Informe o valor de C: <input type="text" id="c"/>
+        <button onclick="calcularRaizes()">Calcular raízes</button>
+        <p id="resultado"></p>
+        <script>
+            function calcularRaizes() {
+                let a = Number(document.getElementById("a").value);
+                let b = Number(document.getElementById("b").value);
+                let c = Number(document.getElementById("c").value);
+                let d = calcularDiscriminante(a, b, c);
+                if(d >= 0) {
+                    let x1 = (-b + Math.sqrt(d)) / 2*a;
+                    let x2 = (-b - Math.sqrt(d)) / 2*a;
+                    document.getElementById("resultado").innerText = `X1 = ${x1} e X2 = ${x2}`;
+                } else {
+                    document.getElementById("resultado").innerText = `O valor do discriminante foi ${d}, portanto a equação NÃO possui uma solução real`;
+                }
+            }
+
+            function calcularDiscriminante(a, b, c) {
+                return b**2 - 4 * a * c;
+            }
+        </script>
+    </body>
+</html>
