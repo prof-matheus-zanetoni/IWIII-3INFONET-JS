@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Primeira aula de jQuery</title>
+    </head>
+    <body>
+        <p id="paragrafo">Isto é um parágrafo</p>
+        <script src="../JavaScript/jQuery.js"></script>
+        <script>
+            $("p#paragrafo").click(function () {
+                $(this).css("color", "blue");
+            });
+
+            $("p#paragrafo").mouseleave(function () {
+                $(this).css("color", "red");
+            });
+
+            $("p#paragrafo").dblclick(function () {
+                $(this).css("text-align", "center");
+            });
+        </script>
+    </body>
+</html>
