@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Equação 2º grau Bhaskara com jQuery</title>
+    </head>
+    <body>
+        <h3>Pressione a tecla Enter</h3>
+        Valor de A: <input type="text" id="valorA"/>
+        Valor de B: <input type="text" id="valorB"/>
+        Valor de C: <input type="text" id="valorC"/>
+        <p id="resultado"></p>
+        <script src="../JavaScript/jQuery.js"></script>
+        <script>
+            $(document).keydown(function (e) {
+                if(e.key === "Enter") {
+                    let a = $("input#valorA").val();
+                    let b = $("input#valorB").val();
+                    let c = $("input#valorC").val();
+                    let delta = b**2 - 4 * a * c;
+                    if(delta >= 0) {
+                        let x1 = (-b + Math.sqrt(delta)) / 2 * a;
+                        let x2 = (-b - Math.sqrt(delta)) / 2 * a;
+                        $("p#resultado").text(`X1 = ${x1} e X2 = ${x2}`);
+                    } else {
+                        $("p#resultado").text("A equação não possui raízes reais");
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
