@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercício 03</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background-color: green;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="quadrado"></div>
+        Largura (px): <input type="text" id="largura"/>
+        Cor: <select id="cores">
+            <option value="green" selected>Verde</option>
+            <option value="blue">Azul</option>
+            <option value="red">Vermelho</option>
+            <option value="yellow">Amarelo</option>
+        </select>
+        <button id="trocarPropriedades">Trocar propriedades</button>
+        <script src="../JavaScript/jQuery.js"></script>
+        <script>
+            $("button#trocarPropriedades").click(function () {
+                let largura = $("input#largura").val();
+                let cor = $("select#cores").val();
+                $("div#quadrado").css("width", largura);
+                $("div#quadrado").css("background-color", cor);
+            });
+        </script>
+    </body>
+</html>
