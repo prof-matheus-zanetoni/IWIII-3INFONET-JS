@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aula do dia 14/06/2022 - AJAX</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="card">
+            <div class="card-header">
+                <h1 class="text-center">Formulário de endereço</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="cep">CEP:</label>
+                        <input type="text" class="form-control" id="cep"/>
+                    </div>
+                    <div class="col-2">
+                        <label for="logradouro">Logradouro:</label>
+                        <input type="text" class="form-control" id="logradouro"/>
+                    </div>
+                    <div class="col-2">
+                        <label for="complemento">Complemento:</label>
+                        <input type="text" class="form-control" id="complemento"/>
+                    </div>
+                    <div class="col-2">
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" class="form-control" id="bairro"/>
+                    </div>
+                    <div class="col-2">
+                        <label for="localidade">Localidade:</label>
+                        <input type="text" class="form-control" id="localidade"/>
+                    </div>
+                    <div class="col-2">
+                        <label for="uf">UF:</label>
+                        <input type="text" class="form-control" id="uf"/>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3">
+                        <label for="ibge">IBGE:</label>
+                        <input type="text" class="form-control" id="ibge"/>
+                    </div>
+                    <div class="col-3">
+                        <label for="gia">GIA:</label>
+                        <input type="text" class="form-control" id="gia"/>
+                    </div>
+                    <div class="col-3">
+                        <label for="ddd">DDD:</label>
+                        <input type="text" class="form-control" id="ddd"/>
+                    </div>
+                    <div class="col-3">
+                        <label for="siafi">SIAFI:</label>
+                        <input type="text" class="form-control" id="siafi"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $("input#cep").blur(function () {
+                let cep = $(this).val();
+                $.getJSON(`https://viacep.com.br/ws/${cep}/json`, function (resposta) {
+                    $("input#logradouro").val(resposta.logradouro);
+                    $("input#complemento").val(resposta.complemento);
+                    $("input#bairro").val(resposta.bairro);
+                    $("input#localidade").val(resposta.localidade);
+                    $("input#uf").val(resposta.uf);
+                    $("input#ibge").val(resposta.ibge);
+                    $("input#gia").val(resposta.gia);
+                    $("input#ddd").val(resposta.ddd);
+                    $("input#siafi").val(resposta.siafi);
+                });
+            });
+        </script>
+    </body>
+</html>
